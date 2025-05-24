@@ -1,4 +1,4 @@
-// Импорт необходимых библиотек Flutter
+
 import 'package:flutter/material.dart';
 
 // Главная функция приложения - точка входа
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Экран калькулятора (Stateful Widget для управления состоянием)
+// Экран калькулятора Stateful Widget для управления состоянием
 class EnergyCalculatorScreen extends StatefulWidget {
   const EnergyCalculatorScreen({super.key});
 
@@ -48,13 +48,13 @@ class _EnergyCalculatorScreenState extends State<EnergyCalculatorScreen> {
   // Состояние чекбокса согласия
   bool _agreementChecked = false;
   
-  // Выбранная система единиц (по умолчанию СИ)
+  // Выбранная система единиц CИ
   String? _unitSystem = 'si';
 
   // Константы для конвертации единиц:
   static const double poundsToKg = 0.453592; // 1 фунт = 0.453592 кг
-  static const double mphToMs = 0.44704;    // 1 миля/час = 0.44704 м/с
-  static const double kmhToMs = 0.277778;   // 1 км/ч = 0.277778 м/с
+  static const double mphToMs = 0.44704;  // 1 миля/час = 0.44704 м/с
+  static const double kmhToMs = 0.277778; // 1 км/ч = 0.277778 м/с
 
   // Метод расчета кинетической энергии
   void _calculateEnergy() {
@@ -68,8 +68,8 @@ class _EnergyCalculatorScreenState extends State<EnergyCalculatorScreen> {
       if (_unitSystem == 'si') {
         velocity *= kmhToMs; // Конвертация км/ч → м/с
       } else if (_unitSystem == 'imperial') {
-        mass *= poundsToKg;     // Конвертация массы в кг
-        velocity *= mphToMs;    // Конвертация скорости в м/с
+        mass *= poundsToKg;  // Конвертация массы в кг
+        velocity *= mphToMs;   // Конвертация скорости в м/с
       }
       
       // Расчет энергии по формуле: E = ½mv²
@@ -215,11 +215,11 @@ class _EnergyCalculatorScreenState extends State<EnergyCalculatorScreen> {
 // Экран отображения результатов
 class ResultScreen extends StatelessWidget {
   // Параметры экрана:
-  final double mass;            // Масса в кг (после конвертации)
-  final double velocity;        // Скорость в м/с (после конвертации)
-  final double energy;          // Энергия в Дж
-  final String unitSystem;      // Использованная система единиц
-  final double originalMass;    // Исходная масса (до конвертации)
+  final double mass; // Масса в кг (после конвертации)
+  final double velocity;// Скорость в м/с (после конвертации)
+  final double energy;  // Энергия в Дж
+  final String unitSystem;  // Использованная система единиц
+  final double originalMass;  // Исходная масса (до конвертации)
   final double originalVelocity; // Исходная скорость (до конвертации)
 
   const ResultScreen({
